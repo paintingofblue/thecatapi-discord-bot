@@ -38,20 +38,6 @@ class Pages(discord.ui.View):
 
 		await interaction.response.edit_message(embed=self.pages[self.current_page], view=self)
 
-	async def interaction_check(self, interaction: discord.Interaction):
-		if interaction.user.id != self.interaction.user.id:
-			image = await cat.image()
-			if isinstance(image, list):
-				image = image[0]
-
-			embed = discord.Embed(title='Error', description="You can't use this button because you didn't start the command. Try running </breeds:1> and selecting \"list\".", color=discord.Colour.red())
-			embed.set_image(url=image.get("url"))
-
-			await interaction.response.send_message(embed=embed, ephemeral=True)
-			return False
-		else:
-			return True
-
 class Breed(commands.Cog):
 	def __init__(self, bot: commands.Bot):
 		self.bot = bot

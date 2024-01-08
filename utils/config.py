@@ -5,6 +5,7 @@ from typing import Final, Optional, Union
 
 DEFAULT_CFG: Final = {
     "token": "",
+    "users": {},
     "api_keys": [],
     "webhooks": [],
     "videos": [],
@@ -116,7 +117,7 @@ class Config:
         keys = key.split(".")
 
         if not obj or not isinstance(obj, dict):
-            return None
+            return {}
 
         if len(keys) == 1:
             return obj.get(key)

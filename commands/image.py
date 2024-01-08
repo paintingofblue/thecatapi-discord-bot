@@ -1,6 +1,7 @@
 import json
 import discord
 from discord.ext import commands
+from views.general import Voting
 from utils.cat import cat
 from utils.general import breed_autocomplete
 
@@ -30,7 +31,7 @@ class Image(commands.Cog):
 
 		# 	embeds.append(embed)
 
-		await interaction.response.send_message(embeds=embeds)
+		await interaction.response.send_message(content='hi', view=Voting(images[0]))
 
 async def setup(bot: commands.Bot):
 	await bot.add_cog(Image(bot))

@@ -1,6 +1,5 @@
 import discord
 import json
-import httpx
 from utils.cat import cat
 
 async def breed_autocomplete(interaction: discord.Interaction, current: str):
@@ -16,3 +15,15 @@ async def breed_autocomplete(interaction: discord.Interaction, current: str):
 		for breed in breeds
 		if not current or current.lower() in breed["name"].lower()
 	][:25]
+
+def setup_user_dict(user):
+	if not user.get('favorites'):
+		user['favorites'] = []
+
+	if not user.get('likes'):
+		user['likes'] = []
+
+	if not user.get('dislikes'):
+		user['dislikes'] = []
+
+	return user
