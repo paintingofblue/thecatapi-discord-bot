@@ -1,0 +1,7 @@
+asyncio
+discord
+datetime
+requests
+grequests
+httpx
+aiohttp

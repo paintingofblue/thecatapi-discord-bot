@@ -1,6 +1,3 @@
-# Data
-data.json
-
-# Stupid pycache shit
+.venv/
 __pycache__/
-*.py[cod]
+**/*.py[cod]
